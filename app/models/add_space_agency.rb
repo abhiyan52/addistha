@@ -1,0 +1,2 @@
+class AddSpaceAgency < ApplicationRecord
+end

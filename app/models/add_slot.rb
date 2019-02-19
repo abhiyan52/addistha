@@ -1,0 +1,2 @@
+class AddSlot < ApplicationRecord
+end

@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="row">
+    <div class="card">
+       <div class="auth_title">
+         <h1>Login</h1>
+            <%= form_tag(:controller=>"index", :action=>"login", :method => "POST", :class=>"form-control") do %>
+            <%= label_tag("Username:") %>
+            <%= text_field_tag("username","",:placeholder =>"Enter your username", :class => "auth-input form-control") %>
+            <%= label_tag("Password:") %>
+            <%= password_field_tag("password", " ",:placeholder =>"Enter your password", :class => "auth-input form-control")%>
+            <%= submit_tag("Login") %>
+            <% end %>  
+      </div>
+    </div>
+  </div>
+  
+</div>

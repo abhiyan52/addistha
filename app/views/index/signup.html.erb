@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+     <div class="signup-container">
+            <div class="auth_title">
+            <h1>Signup</h1>
+            </div>
+            <%= form_tag(:controller=>"index", :action=>"signup", :class=>"form-control",:method => "POST" ) do %>
+            <%= label_tag("Enter your last Name:") %>
+            <%= text_field_tag("user[first_name]", "" ,:placeholder => "Enter your firstname" ,:class=>"form-control auth-input") %>
+            <%= label_tag("Enter your last Name:") %>
+            <%= text_field_tag("user[last_name]","",:placeholder =>"Enter your lastname",:class => "auth-input form-control") %>
+            <%= label_tag("Enter a username:") %>
+            <%= text_field_tag("user[username]","",:placeholder =>"Enter a username",:class => "auth-input form-control") %>
+            <%= label_tag("Enter a password:") %>
+            <%= password_field_tag("user[password]", "", :placeholder =>"Enter ",:class => "auth-input form-control")%>
+            <%= label_tag("Enter a email:")  %>
+            <%= email_field_tag("user[email]","",:placeholder =>"Enter an email",:class => "auth-input form-control") %>
+            <%= label_tag("Enter a contact number:")  %>
+            <%= text_field_tag("user[contact_number]","",:placeholder =>"Enter a contact number",:class => "auth-input form-control") %>
+            <%= label_tag("Please select the type of user")%>
+            <%=select "user", "user_type", [["Organization",0],["Advertisement Agent",1],["Advertisement Space",2]],{},:class=>"form-control"%>
+              
+            <%= submit_tag("Signup", :class => "btn btn-submit") %>
+            <% end %> 
+           </div>
+         
+  </div>
+  
+</div>

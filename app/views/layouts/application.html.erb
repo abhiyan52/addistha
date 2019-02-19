@@ -8,8 +8,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <body>
-    <%= yield %>
+  <%= render "layouts/header" %>
+  <div class="flash-messages">
+  <% flash.each do |key,value| %>
+  <p class="alert alert-<%= key %>">
+    <%= value %>
+    </p>
+   <% end %>  
+  </div>
+<div class="container">
+  <div class="row main-content">
+     <%= yield %>   
+  </div>
+</div>
+    
+   <%= render "layouts/footer" %>
   </body>
 </html>
