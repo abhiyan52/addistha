@@ -1,13 +1,20 @@
-<div class="container">
+<div class="container ">
 	<div class="row">
 		<div class="col-xs-3 col-md-3">
 			
 		</div>
 		<div class="col-xs-9 col-md-9">
 			<div class="form-container">
-				<%= form_for @advertisement, create_advertisement_path(), :class=>"form_control" do |f| %>
-					<%= f.text_field : %>
-		
+				<%= form_for @advertisement, url: advertisements_path(), :class=>"form-control" do |f| %>
+					<%= label_tag "Select the start time for slot :" %>
+					<%= f.datetime_select :slot_start_time ,:start_year => Time.now.year, :end_year => Time.now.year, :discard_year => true, :class => "form_control" %>
+					<br>		
+					<%= label_tag "Select the start time for slot :" %>
+					<%= f.datetime_select :slot_end_time, :start_year => Time.now.year, :end_year => Time.now.year, :discard_year => true, :class => "form_control" %>					
+					<br>
+					<%= f.submit("Create Slot") %>
+					<%= f.hidden_field("agency_id") %>
+					
 				<% end %>
 			</div>
 		</div>

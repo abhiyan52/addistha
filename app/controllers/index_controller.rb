@@ -1,5 +1,6 @@
  class IndexController < ApplicationController
     def index
+        @advertisements = Advertisement.all
     end
     def profile 
      @user = User.find_by_username(session[:username])
@@ -43,6 +44,7 @@
            flash[:danger] = error
            redirect_to(signup_path())
         end
-    end   
+    end
+       
 end
 end

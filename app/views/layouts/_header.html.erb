@@ -6,7 +6,7 @@
 <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
       <% if session[:user_type] == 0 %>
       <li class="nav-item">
@@ -27,9 +27,15 @@
       </li>
     <% elsif session[:user_type] == 2%>
         <li class="nav-item">
+
+
              <%= link_to "Create New Slot", new_advertisement_path(),:class=>"nav-link" %>
 
       </li>
+        <li class="nav-item">
+        <%= link_to "Advertisement Slots", advertisements_path(),:class=>"nav-link" %>
+        </li>
+       
     <% end %>
   </ul>
     <div class="login_signup">

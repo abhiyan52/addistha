@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  advertisement_id,: MyString
+  agent_id,: MyString
+  bid_amount: MyString
+
+two:
+  advertisement_id,: MyString
+  agent_id,: MyString
+  bid_amount: MyString

@@ -1,2 +1,49 @@
-<h1>Advertisements#show</h1>
-<p>Find me in app/views/advertisements/show.html.erb</p>
+<div class="container">
+	<div class="row">
+		<div class="col-md-3 advertisement-info">
+			<div class="well">
+				<h2>Slot Information</h2>
+				<p>Start Time: <%=@advertisement.slot_start_time %></p>
+				<p>End Time: <%= @advertisement.slot_end_time %></p>
+				<p>Duration: <%= @advertisement.slot_duration %></p>
+				<p>Agency Name: <%= @advertisement.agency.name %></p>
+				<p>Status: <%= @advertisement.status %></p>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<% if @advertisement.status.nil? %>
+				<h2>Please Start The Bid process</h2>
+
+			<% else %>
+			<h2 class="text-center">Bidding Pannel</h2>
+			<div class="current_bid_info">
+				<p class="alert alert-success">Bid Status:  </p>
+				<p class="alert alert-success">Bid Start Rate: </p>
+				<p class="alert alert-success">Latest Bid amount: <%= Bid.last.bid_amount %> </p>
+				<p class="alert alert-success">Highest Bidding Agent: <%= Bid.highest %> </p>
+				<p class="alert alert-success">Bidding Start Time: </p>
+			</div>
+			<div class="bid_table">
+				<table class="table table-striped">
+					<tr>
+						<th>ID</th>
+						<th>Agent Name</th>
+						<th>Bid Amount</th>
+						<th>Agent Contact</th>
+						<th>Agent Email</th>
+					</tr>
+					<% @bids.each do |bid| %>
+					<tr>
+						<td><%= bid.id %></td>
+						<td><%= bid.agent.name %></td>
+						<td><%= bid.bid_amount %></td>
+						<td><%= bid.agent.contact_number %></td>
+						<td><%= bid.agent.email %></td>
+					</tr>	
+					<% end %>
+				</table>				
+			</div>
+		</div>
+	<%end%>
+	</div>	
+</div>

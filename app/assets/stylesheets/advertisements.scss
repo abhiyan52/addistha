@@ -4,7 +4,7 @@
 .flex-container{
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: no-wrap;
   }
   .bid-title{
     text-align:center;
@@ -19,3 +19,11 @@
     box-shadow: 10px 5px 5px 5px skyblue ;
     
   }
+ .advertisement-info{
+  background-color:purple;
+  color:white;
+  height:1vph;
+}
+.nav-link:hover{
+  background:inherit !important;
+}

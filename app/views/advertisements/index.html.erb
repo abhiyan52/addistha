@@ -1,11 +1,29 @@
-<% @advertisements.each do |advertisement| %>
-  <div class="container flex-container">
-  <div class="row">
-    <div class="bid-card">
-      <div class="bid-title">
-        <h6>advertisement.name</h6>
-      </div>
-    </div>
-  </div>
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<th>S.N</th>
+			<th>Slot Start</th>
+			<th>Slot End</th>
+			<th>Slot Duration</th>
+			<th>Status</th>
+			<th>Actions</th>
+		</tr>
+		<% @advertisements.each do |advertisement| %>
+		<tr <%= "class = 'closed'" if advertisement.status == "closed" %>>
+			<td><%=advertisement.id%></td>
+			<td><%=advertisement.slot_start_time%></td>
+			<td><%=advertisement.slot_end_time%></td>
+			<td><%=advertisement.slot_duration%> minutes</td>
+			<td><%=advertisement.status%></td>
+			<td>
+				<%=link_to raw("<button class='btn btn-warning'> <i class='fa fa-eye'></i> View  </button>"), advertisement_path(advertisement.id) %>
+				<%=link_to raw("<button class='btn btn-primary'> Edit  </button>"), edit_advertisement_path(advertisement.id)%>
+				<%=link_to raw("<button class='btn btn-danger'>Delete</button>"), delete_advertisement_path(advertisement.id)%>
+				
+			</td>
+		</tr>
+	    <%end%>	
+		
+	</table>
+	
 </div>
-<%end%>

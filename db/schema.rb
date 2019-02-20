@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_132411) do
+ActiveRecord::Schema.define(version: 2019_02_20_100022) do
 
   create_table "add_agents", force: :cascade do |t|
     t.string "name"
@@ -73,6 +73,26 @@ ActiveRecord::Schema.define(version: 2019_02_19_132411) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_agencies_on_manager_id"
+  end
+
+  create_table "agents", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "contact_number"
+    t.integer "manager_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manager_id"], name: "index_agents_on_manager_id"
+  end
+
+  create_table "bids", force: :cascade do |t|
+    t.string "advertisement_id", null: false
+    t.string "agent_id", null: false
+    t.integer "bid_amount", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["advertisement_id"], name: "index_bids_on_advertisement_id"
+    t.index ["agent_id"], name: "index_bids_on_agent_id"
   end
 
   create_table "organizations", force: :cascade do |t|
