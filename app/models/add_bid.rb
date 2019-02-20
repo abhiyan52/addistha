@@ -1,2 +1,0 @@
-class AddBid < ApplicationRecord
-end

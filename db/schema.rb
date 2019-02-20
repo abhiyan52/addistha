@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_19_065737) do
+ActiveRecord::Schema.define(version: 2019_02_19_132411) do
 
   create_table "add_agents", force: :cascade do |t|
     t.string "name"
@@ -53,6 +53,26 @@ ActiveRecord::Schema.define(version: 2019_02_19_065737) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_add_space_agencies_on_manager_id"
+  end
+
+  create_table "advertisements", force: :cascade do |t|
+    t.datetime "slot_start_time"
+    t.datetime "slot_end_time"
+    t.integer "agency_id"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["agency_id"], name: "index_advertisements_on_agency_id"
+  end
+
+  create_table "agencies", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.integer "manager_id"
+    t.integer "contact_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manager_id"], name: "index_agencies_on_manager_id"
   end
 
   create_table "organizations", force: :cascade do |t|

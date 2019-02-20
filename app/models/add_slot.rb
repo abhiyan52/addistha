@@ -1,2 +1,0 @@
-class AddSlot < ApplicationRecord
-end

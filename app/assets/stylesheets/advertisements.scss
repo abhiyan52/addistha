@@ -1,0 +1,21 @@
+// Place all the styles related to the Advertisements controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.flex-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .bid-title{
+    text-align:center;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+  .bid-card{
+    padding:10px;
+    margin:10px 55px 10px 5px;
+    width:320px;
+    height:300px;
+    color:light-grey;
+    box-shadow: 10px 5px 5px 5px skyblue ;
+    
+  }

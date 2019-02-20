@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light mynav">
   <a class="navbar-brand" href="#">Addistha</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -25,16 +25,19 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Slot Market</a>
       </li>
-    <%else%>
+    <% elsif session[:user_type] == 2%>
         <li class="nav-item">
-        <a class="nav-link" href="#">Create New Slot</a>
+             <%= link_to "Create New Slot", new_advertisement_path(),:class=>"nav-link" %>
+
       </li>
     <% end %>
   </ul>
     <div class="login_signup">
   </div>
     <% if session[:username] %>
-    <i class="fa fa-user"></i>
+    <%= link_to(raw("<i style='color:black;' class='fa fa-user'></i>"),:controller=>"index", :action=>"profile")%>
+    <%= link_to(raw("<i style='color:black; padding:10px;' class='fa  fa-sign-out'></i>"),:controller=>"index", :action=>"logout")%>
+ 
    <% else %>
     <%= link_to "Login", :controller => "index", :action=>"login" %>
     <% end%>

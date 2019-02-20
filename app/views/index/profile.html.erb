@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card">
+    <h1 class="title">
+      Profile for <%= @user.first_name %>
+     </h1>
+      <div class="information">
+        <p>Name: <%= @user.first_name + " "  + @user.last_name %> </p>
+        <p>Email: <%= @user.email %> </p>
+        <p>Contact: <%= @user.contact_number %> </p>
+        <p>Joining Date: <%= @user.created_at %> </p>
+        <p>Name: </p>
+      </div>
+  </div>
+</div>

@@ -1,2 +1,0 @@
-class AddAgent < ApplicationRecord
-end

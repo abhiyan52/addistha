@@ -1,2 +1,0 @@
-class AddSpaceAgency < ApplicationRecord
-end
