@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_21_091247) do
+ActiveRecord::Schema.define(version: 2019_02_21_115744) do
 
   create_table "add_agents", force: :cascade do |t|
     t.string "name"
@@ -113,10 +113,10 @@ ActiveRecord::Schema.define(version: 2019_02_21_091247) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string "CreateOrganizations"
-    t.integer "manager_id"
-    t.string "contact_number"
+    t.string "name"
     t.string "email"
+    t.string "contact_number"
+    t.integer "manager_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_organizations_on_manager_id"

@@ -1,2 +1,23 @@
-<h1>SlotItems#list</h1>
-<p>Find me in app/views/slot_items/list.html.erb</p>
+<div class="container">
+	<table class="table table-striped">
+		<tr>
+			<th>Slot ID</th>
+			<th>Start Time</th>
+			<th>End Time</th>
+			<th>Buying Price</th>
+			<th>Slot Status</th>
+		</tr>
+		<% @slots.each do |slot|  %>
+			<tr <%= if slot.advertisement.slot_start_time.to_s < Time.now then "class = old" else "class = upcoming" end %>>
+			<td><%= slot.id %></td>
+			<td><%= slot.advertisement.slot_start_time %></td>
+			<td><%= slot.advertisement.slot_start_time %></td>
+			<td><%= slot.buying_price %></td>
+			<td><%= if slot.advertisement.slot_start_time.to_s < Time.now then "completed" else "scheduled" end %></td>
+		</tr>
+	
+	
+		<% end %>
+	
+	</table>
+</div>

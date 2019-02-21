@@ -31,7 +31,7 @@
           Space Agency: <span class="text-warning"><%=  @advertisement_slot.advertisement.agency.name   %></span>
         </p>
         <%= form_tag :controller => "slot_items", :action => "create", :method => "post" do %>
-			<%= hidden_field_tag "username", :value => session[:username] %>
+			<%= hidden_field_tag "slot_id", @advertisement_slot.id %>
 			<%= submit_tag "Buy Now",:class => "buy-button btn btn-primary" %>
         <% end %>	
       

@@ -10,10 +10,10 @@
       </li>
       <% if session[:user_type] == 0 %>
       <li class="nav-item">
-        <a class="nav-link" href="#">Bid Point</a>
+        <a class="nav-link" href="/slot_items/index">Shop</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">My Slots</a>
+        <a class="nav-link" href="/slot_items/list">My Slots</a>
       </li>
     <% elsif session[:user_type] == 1 %>
       <li class="nav-item">
@@ -22,9 +22,7 @@
        <li class="nav-item">
         <a class="nav-link" href="#">Bid Point</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Slot Market</a>
-      </li>
+
     <% elsif session[:user_type] == 2%>
         <li class="nav-item">
 

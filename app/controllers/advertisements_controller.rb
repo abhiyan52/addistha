@@ -72,6 +72,7 @@ class AdvertisementsController < ApplicationController
         advertisement_slot = AdvertisementSlot.new(:agent_id => bid_info.agent_id, :advertisement_id => params[:id], :buying_price => bid_info.bid_amount)
         if advertisement_slot.save 
           flash[:sucess] = "The slot has been sucessfully sold to #{advertisement_slot.agent.name} for ${advertisement_slot.buying_price}"
+          AddisthaMailer.purchase_confirmation(advertisement_slot)
           advertisement.update_attribute('status', 'sold')
           advertisement.save
         else 

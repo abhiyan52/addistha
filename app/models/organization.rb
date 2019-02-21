@@ -1,3 +1,4 @@
 class Organization < ApplicationRecord
-	has_many  :advertisement_slots
-end 
+	belongs_to :user,  :foreign_key => "manager_id" 
+	has_many :advertisement_slots
+end
