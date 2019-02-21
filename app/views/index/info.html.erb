@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="row">
+
+    <div class="form-body">
+           <h5 class="text text-center form-heading">
+       Please Fill Your Company Detail
+    </h5>
+    <%= form_tag(controller: "index", action: "extrainfo", method: "post", class: "form-control") do %>
+        <%= hidden_field_tag "user_id", "", :value => params[:id] %>
+        <%= label_tag("Enter your company name") %>
+        <%= text_field_tag("company[name]", "", :placeholder => "Enter your company name",:class=>"form-control") %>
+        <%= label_tag("Enter your company email:") %>
+        <%= email_field_tag("company[email]", "", :placeholder => "Enter your company name", :class=>"form-control") %>
+        <%= label_tag("Enter your company contact number:") %>
+        <%= email_field_tag("company[contact_number]", "", :placeholder => "Enter your company name", :class=>"form-control") %>
+        <%= submit_tag("Signup", :class => "btn btn-submit") %>
+     <% end %>  
+    </div>
+  </div>
+</div>

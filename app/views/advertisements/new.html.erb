@@ -12,8 +12,22 @@
 					<%= label_tag "Select the start time for slot :" %>
 					<%= f.datetime_select :slot_end_time, :start_year => Time.now.year, :end_year => Time.now.year, :discard_year => true, :class => "form_control" %>					
 					<br>
-					<%= f.submit("Create Slot") %>
+					
 					<%= f.hidden_field("agency_id") %>
+					<br>
+					<%= label_tag "Select the end Time for bidding :" %>
+					<%= f.datetime_select :bid_end_time, :start_year => Time.now.year, :end_year => Time.now.year, :discard_year => true, :class => "form_control" %>
+					<br>
+					
+					<%= label_tag "Enter the base price :" %>
+					<%= f.number_field :base_price, :class=>"form-control" %>
+					<br>
+					<%= label_tag "Check This for start bidding immediately :" %>
+					<%= f.check_box :status, {}, "bidding","idle"%>
+					<br>
+					<%= f.submit("Create Slot") %>
+					
+
 					
 				<% end %>
 			</div>

@@ -1,2 +1,3 @@
 class Organization < ApplicationRecord
-end
+	has_many  :advertisement_slots
+end 

@@ -5,12 +5,12 @@
       <div class="bid-title">
         <h3><%= advertisement.agency.name %></h3>
         <div class="bid-body">
-        
         <p class="text text-warning"><%= advertisement.slot_start_time.to_s + "-" + advertisement.slot_end_time.to_s  %></p>
         <span>
           <small style="text-align: center; font-style: italic;"> Time left </small>
-          <div end-time = <%= advertisement.slot_end_time.to_f  %> class="counter main-page-counter">
-            
+                  
+           <small style="text-align: center; font-style: italic;"> Highest Bid: $ <%= advertisement.bids.order(:bid_amount).first.bid_amount if advertisement.bids.first %> </small>
+          <div end-time = '<%= advertisement.bid_end_time %>' class="counter main-page-counter"> 
           </div>
           <% if session[:username].nil? %>
           <button class="btn btn-danger" disabled=""> Login To Bid</button>
@@ -25,5 +25,7 @@
       </div>
     </div>
   </div>
+
 <%end%>
+
 </div>

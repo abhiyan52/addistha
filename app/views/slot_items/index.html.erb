@@ -1,0 +1,31 @@
+<div class="products">
+<% @advertisement_slots.each do |slot| %>
+	<div class="product">
+  <div class="product-image">
+    <%= image_tag("index.jpeg", :alt => "rss feed", :class => "") %> 
+	
+    
+  </div>
+  <div class="product-title">
+    <h5 class="text-center"><%= slot.advertisement.agency.name %></h5>
+  </div>
+  <div class="product_body text-muted text-center">
+	<p>
+		Slot Start: <span class="text-danger"><%= slot.advertisement.slot_start_time %></span>
+	</p>
+	<p>
+		Slot End: <span class="text-danger"><%= slot.advertisement.slot_end_time %></span>
+	</p>
+	<p>
+		Slot Duration: <span class="text-danger"><%= slot.advertisement.slot_duration %> minutes</span>
+	</p>
+  </div>
+  <div class="product-actions">
+    <%= link_to raw("<button class='btn btn-warning'>  <i class='fa fa-shopping-bag'></i>Buy Now</button>"), :controller => "slot_items",:action=>"show", :id => slot.id %>
+   
+
+  </div>
+</div>  
+	
+<% end %>
+</div>

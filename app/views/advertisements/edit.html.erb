@@ -11,7 +11,8 @@
 					<br>		
 					<%= label_tag "Select the end time for slot :" %>
 					<%= f.datetime_select :slot_end_time, :start_year => Time.now.year, :end_year => Time.now.year, :discard_year => true, :class => "form_control" %>					
-					<br>
+										
+				
 					<%= f.submit("Create Slot") %>
 					<%= f.hidden_field("agency_id") %>
 					

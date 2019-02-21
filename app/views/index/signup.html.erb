@@ -19,7 +19,6 @@
             <%= text_field_tag("user[contact_number]","",:placeholder =>"Enter a contact number",:class => "auth-input form-control") %>
             <%= label_tag("Please select the type of user")%>
             <%=select "user", "user_type", [["Organization",0],["Advertisement Agent",1],["Advertisement Space",2]],{},:class=>"form-control"%>
-              
             <%= submit_tag("Signup", :class => "btn btn-submit") %>
             <% end %> 
            </div>

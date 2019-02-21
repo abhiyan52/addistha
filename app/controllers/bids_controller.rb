@@ -22,7 +22,8 @@ class BidsController < ApplicationController
 
   def create
     bid = Bid.new(params.require(:bid).permit(:bid_amount, :agent_id , :advertisement_id))
-    if bid.save 
+    
+    if bid.save
       flash[:success] = "Your bid has been recorded"
     else
       bid.errors.full_messages.each  do |message| 

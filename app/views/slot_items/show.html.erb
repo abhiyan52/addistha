@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+       <%= image_tag("index.jpeg", :alt => "rss feed", :class => "") %> 
+       <h3 class="text-center  text-primary" style=" padding-top : 30px;transform: translateX(-20%) ">$ <%= @advertisement_slot.buying_price %></h3>
+      
+    </div>
+    <div class="col-md-8">
+      <div class="card desc-card">
+      	<h4 class="text-center">Agent Information</h4>
+        <p class="product-text">
+          Seller Agent: <span class="text-warning"><%= @advertisement_slot.agent.name %></span>
+        </p>
+        <p class="product-text">
+          Seller Contact: <span class="text-warning"><%= @advertisement_slot.agent.contact_number %></span>
+        </p>
+        <p class="product-text">
+          Seller Email: <span class="text-warning"><%= @advertisement_slot.agent.email %></span>
+        </p>
+        <p class="product-text">
+          Seller Agent Manager: <span class="text-warning"><%= @advertisement_slot.agent.user.first_name + @advertisement_slot.agent.user.last_name   %></span>
+        </p>
+        <h4 class="text-center">Slot Information</h4>
+		 <p class="product-text">
+          Slot Start Time: <span class="text-warning"><%= @advertisement_slot.advertisement.slot_start_time.to_s %></span>
+        </p>
+        <p class="product-text">
+          Slot End Time: <span class="text-warning"><%= @advertisement_slot.advertisement.slot_end_time.to_s  %></span>
+        </p>
+        <p class="product-text">
+          Space Agency: <span class="text-warning"><%=  @advertisement_slot.advertisement.agency.name   %></span>
+        </p>
+        <%= form_tag :controller => "slot_items", :action => "create", :method => "post" do %>
+			<%= hidden_field_tag "username", :value => session[:username] %>
+			<%= submit_tag "Buy Now",:class => "buy-button btn btn-primary" %>
+        <% end %>	
+      
+      </div>
+        </div>
+  </div>
+</div>

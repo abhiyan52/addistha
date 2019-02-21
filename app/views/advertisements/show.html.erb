@@ -8,6 +8,9 @@
 				<p>Duration: <%= @advertisement.slot_duration %></p>
 				<p>Agency Name: <%= @advertisement.agency.name %></p>
 				<p>Status: <%= @advertisement.status %></p>
+				<% if @advertisement.status == 'stopped' && !AdvertisementSlot.find_by_advertisement_id(@advertisement.id) %>
+				 <%=link_to(raw('<button class="btn btn-primary">Sell</button>'), :controller => 'advertisements', :action => "sell", :id => @advertisement.id) %>
+				<% end %>
 			</div>
 		</div>
 		<div class="col-md-9">
@@ -17,11 +20,12 @@
 			<% else %>
 			<h2 class="text-center">Bidding Pannel</h2>
 			<div class="current_bid_info">
-				<p class="alert alert-success">Bid Status:  </p>
-				<p class="alert alert-success">Bid Start Rate: </p>
-				<p class="alert alert-success">Latest Bid amount: <%= Bid.last.bid_amount %> </p>
-				<p class="alert alert-success">Highest Bidding Agent: <%= Bid.highest %> </p>
-				<p class="alert alert-success">Bidding Start Time: </p>
+				<p class="alert alert-success">Bid Status: <%= @advertisement.status %>  </p>
+				<p class="alert alert-success">Bid Start Rate: <%= @advertisement.base_price %> </p>
+				<p class="alert alert-success">Latest Bid amount: <%= Bid.where('advertisement_id = ?', @advertisement.id).last.bid_amount if Bid.where('advertisement_id = ?', @advertisement.id).last %> </p>
+				<p class="alert alert-success">Highest Bidding Agent: <%= Bid.highest @advertisement.id if Bid.where('advertisement_id = ?', @advertisement.id).last %> </p>
+				<p class="alert alert-success">Bidding Start Time: <%= @advertisement.bid_start_time %> </p>
+				<p class="alert alert-success">Bidding Start Time: <%= @advertisement.bid_end_time %> </p>
 			</div>
 			<div class="bid_table">
 				<table class="table table-striped">

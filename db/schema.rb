@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_20_100022) do
+ActiveRecord::Schema.define(version: 2019_02_21_091247) do
 
   create_table "add_agents", force: :cascade do |t|
     t.string "name"
@@ -55,13 +55,30 @@ ActiveRecord::Schema.define(version: 2019_02_20_100022) do
     t.index ["manager_id"], name: "index_add_space_agencies_on_manager_id"
   end
 
+  create_table "advertisement_slots", force: :cascade do |t|
+    t.integer "agent_id", null: false
+    t.integer "organization_id"
+    t.integer "advertisement_id", null: false
+    t.integer "selling_price", default: 0
+    t.integer "buying_price", null: false
+    t.string "status", default: "onsale"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["advertisement_id"], name: "index_advertisement_slots_on_advertisement_id"
+    t.index ["agent_id"], name: "index_advertisement_slots_on_agent_id"
+    t.index ["organization_id"], name: "index_advertisement_slots_on_organization_id"
+  end
+
   create_table "advertisements", force: :cascade do |t|
     t.datetime "slot_start_time"
     t.datetime "slot_end_time"
     t.integer "agency_id"
-    t.string "status"
+    t.string "status", default: "idle"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "base_price"
+    t.datetime "bid_start_time"
+    t.datetime "bid_end_time"
     t.index ["agency_id"], name: "index_advertisements_on_agency_id"
   end
 

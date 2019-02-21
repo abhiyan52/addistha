@@ -182,7 +182,7 @@
     }
   }
  .main-content{
-    height:750px;
+    min-height:750px;
   }
 
 .signup-container {
@@ -256,4 +256,48 @@ font-weight: bolder;
   margin-bottom:10px;
   margin-top: 6px;
 
+}
+
+.products{
+  display : flex;
+  flex-wrap : wrap;
+  justify-content:center;
+}
+.products .product{
+  width: 320px;
+  height:300px;
+}
+
+.product-actions {
+  margin-left:30%;
+}
+
+
+.product-actions > button:hover{
+  background-color : crimson;
+  color : white;
+  transition-duration : 1s;
+}
+.product{
+  margin:10px;
+  padding:5px;
+  background : whitesmoke;
+  box-shadow: 2px 2px 2px 2px lightgrey;
+}
+.product-image img{
+  width:100px;
+  height:100px;
+  border-radius:100%;
+  margin-left:30%;
+}
+.buy-button{
+  width:100%;
+} 
+.desc-card{
+  width:100%;
+}
+.product-text{
+font-size : 15px;
+ font-family: cursive;
+  font-weight:bolder;
 }

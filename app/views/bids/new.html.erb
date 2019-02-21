@@ -17,7 +17,7 @@
 				<%= f.number_field(:bid_amount,:class=>"form-control" , :min => 100, :required => "", :value => 100) %>
 				<%= f.hidden_field(:advertisement_id,:value=>@bid.advertisement_id)%>
 				<%= f.hidden_field(:agent_id,:value=>@bid.agent_id)%>
-				<%= f.submit("Bid", :class => "btn btn-warning form-control") %>
+		<%= f.submit("Bid", :class => "btn btn-warning form-control") %>
 			<% end %>
 			
 		</div>
