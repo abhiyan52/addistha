@@ -41,3 +41,9 @@ var x = setInterval(function() {
 
  
 }, 1000);
+
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'ru'
+                });
+            });

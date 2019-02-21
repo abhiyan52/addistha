@@ -7,6 +7,7 @@
 			<div class="form-container">
 				<%= form_for @advertisement, url: advertisements_path(), :class=>"form-control" do |f| %>
 					<%= label_tag "Select the start time for slot :" %>
+
 					<%= f.datetime_select :slot_start_time ,:start_year => Time.now.year, :end_year => Time.now.year, :discard_year => true, :class => "form_control" %>
 					<br>		
 					<%= label_tag "Select the start time for slot :" %>
@@ -33,4 +34,18 @@
 			</div>
 		</div>
 	</div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker2'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
