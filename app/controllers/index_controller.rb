@@ -35,6 +35,7 @@
       if request.method == 'POST'
         u = User.new(params.require(:user).permit(:first_name, :last_name, :email, :password,:contact_number,:username,:user_type))
         if u.save
+            AddisthaMailer.newuser_confirmation(u).deliver
             flash[:success] = "You have been sucessfully registered.. Please give your company detail"
             redirect_to(:controller => "index", :action => "extrainfo", :id => u.id)
         else 

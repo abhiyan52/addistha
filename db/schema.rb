@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_21_115744) do
+ActiveRecord::Schema.define(version: 2019_02_21_183325) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "add_agents", force: :cascade do |t|
     t.string "name"
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_02_21_115744) do
     t.string "name"
     t.string "email"
     t.integer "manager_id"
-    t.integer "contact_number"
+    t.string "contact_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_agencies_on_manager_id"
@@ -103,7 +106,7 @@ ActiveRecord::Schema.define(version: 2019_02_21_115744) do
   end
 
   create_table "bids", force: :cascade do |t|
-    t.string "advertisement_id", null: false
+    t.integer "advertisement_id", null: false
     t.string "agent_id", null: false
     t.integer "bid_amount", default: 0
     t.datetime "created_at", null: false
@@ -127,7 +130,7 @@ ActiveRecord::Schema.define(version: 2019_02_21_115744) do
     t.string "password_digest"
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.integer "contact_number", null: false
+    t.string "contact_number", null: false
     t.string "email", null: false
     t.integer "user_type", default: 0
     t.datetime "created_at", null: false

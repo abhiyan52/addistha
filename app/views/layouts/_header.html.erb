@@ -22,6 +22,9 @@
        <li class="nav-item">
         <a class="nav-link" href="#">Bid Point</a>
       </li>
+      <li>
+        <a href="/slot_items/agent_slots_list" class="nav-link">My Slots</a>
+      </li>
 
     <% elsif session[:user_type] == 2%>
         <li class="nav-item">
@@ -43,7 +46,8 @@
     <%= link_to(raw("<i style='color:black; padding:10px;' class='fa  fa-sign-out'></i>"),:controller=>"index", :action=>"logout")%>
  
    <% else %>
-    <%= link_to "Login", :controller => "index", :action=>"login" %>
+    <%= link_to "Login", :controller => "index", :action=>"login" %>|
+    <%= link_to "Signup", :controller => "index", :action=>"signup" %>
     <% end%>
     </div>
 </nav>

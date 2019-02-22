@@ -2,16 +2,21 @@
 	<div class="row">
 		 <div class="bid_information col-md-4 alert alert-warning">
 				<h3 class="text-center">Advertisement Slot Info</h3>	
-				<p>Advertisment Slot ID:</p>
-				<p>Advertisment Slot Duration:</p>
-				<p>Advertisment Start Time:</p>
-				<p>Advertisment End Time:</p>
-				<p>Advertisment Slot Duration:</p>
-				<p>Posting Ad Space Agency:</p>
-				<p>Highest Bid Abount </p>
+				<p>Advertisment Slot ID:<%= @advertisement.id %></p>
+				<p>Advertisment Slot Duration:<%= @advertisement.slot_duration %></p>
+				<p>Advertisment Start Time:<%= @advertisement.slot_start_time %></p>
+				<p>Advertisment End Time:<%= @advertisement.slot_end_time %></p>
+				<p>Posting Ad Space Agency: <%= @advertisement.agency.name %></p>
+				<p>Minimum Bid Abount: <%= @advertisement.base_price %></p>
 		</div>
 		<div class="col-md-8">
-			<small class="text-danger text-center text-italic">The bid amount should be greater the current bid amount </small>
+			<% if  !@new_bid %>
+				<div class="alert alert warning">
+					You already have placed a bid for this advertisement!! 
+				</div>
+				
+			<% else  %>
+				<small class="text-danger text-center text-italic">The bid amount should be greater the current bid amount </small>
 			<%= form_for @bid do |f| %>
 				<%= label_tag("Enter an amount:") %>
 				<%= f.number_field(:bid_amount,:class=>"form-control" , :min => 100, :required => "", :value => 100) %>
@@ -19,6 +24,10 @@
 				<%= f.hidden_field(:agent_id,:value=>@bid.agent_id)%>
 		<%= f.submit("Bid", :class => "btn btn-warning form-control") %>
 			<% end %>
+
+			<% end %>
+
+			
 			
 		</div>
 	</div>

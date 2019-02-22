@@ -12,7 +12,7 @@
         <%= label_tag("Enter your company email:") %>
         <%= email_field_tag("company[email]", "", :placeholder => "Enter your company name", :class=>"form-control") %>
         <%= label_tag("Enter your company contact number:") %>
-        <%= email_field_tag("company[contact_number]", "", :placeholder => "Enter your company name", :class=>"form-control") %>
+        <%= text_field_tag("company[contact_number]", "", :placeholder => "Enter your company name", :class=>"form-control") %>
         <%= submit_tag("Signup", :class => "btn btn-submit") %>
      <% end %>  
     </div>

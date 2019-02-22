@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'slot_items/index'
   get 'slot_items/show'
   get 'slot_items/list'
+  get 'slot_items/agent_slots_list'
   post 'slot_items/create'
   get 'bids/index'
   get 'bids/show'

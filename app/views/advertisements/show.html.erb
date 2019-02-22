@@ -22,7 +22,6 @@
 			<div class="current_bid_info">
 				<p class="alert alert-success">Bid Status: <%= @advertisement.status %>  </p>
 				<p class="alert alert-success">Bid Start Rate: <%= @advertisement.base_price %> </p>
-				<p class="alert alert-success">Latest Bid amount: <%= Bid.where('advertisement_id = ?', @advertisement.id).last.bid_amount if Bid.where('advertisement_id = ?', @advertisement.id).last %> </p>
 				<p class="alert alert-success">Highest Bidding Agent: <%= Bid.highest @advertisement.id if Bid.where('advertisement_id = ?', @advertisement.id).last %> </p>
 				<p class="alert alert-success">Bidding Start Time: <%= @advertisement.bid_start_time %> </p>
 				<p class="alert alert-success">Bidding Start Time: <%= @advertisement.bid_end_time %> </p>

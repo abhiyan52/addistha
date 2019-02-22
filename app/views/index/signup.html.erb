@@ -5,7 +5,7 @@
             <h1>Signup</h1>
             </div>
             <%= form_tag(:controller=>"index", :action=>"signup", :class=>"form-control",:method => "POST" ) do %>
-            <%= label_tag("Enter your last Name:") %>
+            <%= label_tag("Enter your first Name:") %>
             <%= text_field_tag("user[first_name]", "" ,:placeholder => "Enter your firstname" ,:class=>"form-control auth-input") %>
             <%= label_tag("Enter your last Name:") %>
             <%= text_field_tag("user[last_name]","",:placeholder =>"Enter your lastname",:class => "auth-input form-control") %>

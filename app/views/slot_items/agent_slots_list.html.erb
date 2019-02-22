@@ -1,0 +1,25 @@
+<div class="container">
+	<div class="row">
+		<table class="table table-striped">
+			<tr>
+				<th>I.D</th>
+				<th>Slot Start Time</th>
+				<th>Slot End Time</th>
+				<th>Agency Name</th>
+				<th>Status</th>
+				<th>Buying Organization</th>
+				<th>Actions</th>
+			</tr>
+			<% @agent_slots.each do |slot| %>
+				<td><%= slot.id %></td>
+				<td><%= slot.advertisement.slot_start_time %></td>
+				<td><%= slot.advertisement.slot_end_time %></td>
+				<td><%= slot.advertisement.agency.name %></td>
+				<td><%= slot.advertisement.status%></td>
+				<td><%= if slot.advertisement.status == 'sold' then slot.organization.name else "---" end%></td>
+				
+				<td><button class="btn btn-primary" <%= if slot.advertisement.status == 'sold' then "disabled= ''" end %>>Fix Rate</button></td>
+			<% end %>
+		</table>
+	</div>
+</div>

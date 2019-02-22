@@ -24,4 +24,13 @@ class SlotItemsController < ApplicationController
   def list
     @slots = User.find_by_username(session[:username]).organization.advertisement_slots
   end
+
+  def agent_slots_list
+    @agent_slots = User.find_by_username(session[:username]).agent.advertisement_slots
+
+  end
+
+  def agent_slots_edit
+
+  end 
 end

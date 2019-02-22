@@ -17,7 +17,12 @@ class BidsController < ApplicationController
   def new
     @bid =Bid.new
     @bid.advertisement_id =params[:advertisement_id]
-    @bid.agent_id = User.find_by_username(session[:username]).agent.id  
+    @advertisement = Advertisement.find_by_id(params[:advertisement_id])
+    @bid.agent_id = User.find_by_username(session[:username]).agent.id
+    @new_bid = true 
+    if Bid.where("advertisement_id = ?", params[:advertisement_id]).where("agent_id = ?", @bid.agent_id).length > 0 
+      @new_bid = false 
+    end  
   end 
 
   def create

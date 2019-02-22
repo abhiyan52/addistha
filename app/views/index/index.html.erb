@@ -7,9 +7,11 @@
         <div class="bid-body">
         <p class="text text-warning"><%= advertisement.slot_start_time.to_s + "-" + advertisement.slot_end_time.to_s  %></p>
         <span>
+          <small style="text-align: center; font-style: italic;"> Highest Bid: $ <%= advertisement.bids.order(:bid_amount).first.bid_amount if advertisement.bids.first %> </small>
+          <br>
           <small style="text-align: center; font-style: italic;"> Time left </small>
-                  
-           <small style="text-align: center; font-style: italic;"> Highest Bid: $ <%= advertisement.bids.order(:bid_amount).first.bid_amount if advertisement.bids.first %> </small>
+          <br>        
+           
           <div end-time = '<%= advertisement.bid_end_time %>' class="counter main-page-counter"> 
           </div>
           <% if session[:username].nil? %>
@@ -19,7 +21,6 @@
           
           <% end %>
 
-        	        	<button class="btn btn-warning"> View Adspace</button>
         </span>
 		</div>
       </div>
